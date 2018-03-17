@@ -1,6 +1,5 @@
 # Binary-image-classification-with-CNN-s
 
-Convolutional-Neural-Network-for-Image-Recognition
 A convolutional neural network is trained on labeled images to recognize and predict whether a particular object is shown on an unlabeled image. Although the presented network can learn on any kind of image and number of image classes, I use it here to distinguish cats from dogs. The dataset consists of 25.000 images of dogs and cats for training and testing. The dataset was obtained from https://www.kaggle.com/c/dogs-vs-cats.
 
 The model uses tensorflow Dataset API as input pipeline, with the raw images and labeles encoded in a binary format called TFRecords.
