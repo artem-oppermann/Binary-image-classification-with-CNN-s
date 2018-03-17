@@ -4,7 +4,7 @@ Convolutional-Neural-Network-for-Image-Recognition
 A convolutional neural network is trained on labeled images to recognize and predict whether a particular object is shown on an unlabeled image. Although the presented network can learn on any kind of image and number of image classes, I use it here to distinguish cats from dogs. The dataset consists of 25.000 images of dogs and cats for training and testing. The dataset was obtained from https://www.kaggle.com/c/dogs-vs-cats.
 
 The model uses tensorflow Dataset API as input pipeline, with the raw images and labeles encoded in a binary format called TFRecords.
-Due to bad hardware only a few filters with shallow kernel depths could be used during the convolution. Still only after one epoch an accuracy of 80 % can achieved.
+Due to bad hardware only a few filters with shallow kernel depths could be used during the convolution. Still only after one epoch an accuracy of 80 % can be achieved.
 
     epoch_nr: 0, iter_nr: 50/750, acc. : 0.52, train_loss: 22.808
     epoch_nr: 0, iter_nr: 100/750, acc. : 0.57, train_loss: 21.984
