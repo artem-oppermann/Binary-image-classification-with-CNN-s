@@ -16,7 +16,6 @@ class Model:
     def _inference(self, batch_x, isTraining):
         
         with tf.name_scope('conv_layers'):
-        
             with tf.name_scope('conv_1_layer'):
                 conv1=self._conv_layer(batch_x,filters=16, name='conv_1',is_training=isTraining)
                 conv1=tf.nn.relu(conv1)
@@ -57,8 +56,7 @@ class Model:
         
             flat_conv_img=tf.contrib.layers.flatten(pool2)
             
-            with tf.name_scope('dense_1_layer'):
-                
+            with tf.name_scope('dense_1_layer'):  
                 W1=tf.get_variable('W_1',shape=(flat_conv_img.shape[1],1024),initializer=self.initializer)
                 b1=tf.get_variable('bias_1',shape=(1024),initializer=self.bias_initializer)
                 a1=tf.nn.relu(tf.nn.bias_add(tf.matmul(flat_conv_img, W1), b1))
@@ -89,24 +87,20 @@ class Model:
         loss, loss_summary=self._compute_loss(logits, labels)
     
         with tf.control_dependencies(tf.get_collection(tf.GraphKeys.UPDATE_OPS)):
-            
             if self.FLAGS.optimizer_type=='adam':
                 optimizer_op= tf.train.AdamOptimizer(self.FLAGS.learning_rate, name='adam_optimizer').minimize(loss)
             elif self.FLAGS.optimizer_type=='sgd':
                 optimizer_op= tf.train.GradientDescentOptimizer(self.FLAGS.learning_rate, name='sgd_optimizer').minimize(loss)
             else:
-                raise ValueError('Not an avaiable optimizer!')
-                
+                raise ValueError('Not an avaiable optimizer!')  
             return optimizer_op, loss,loss_summary
         
     def _prediction_result(self, images,labels):
         
         with tf.variable_scope('inference', reuse=True):
-            
             logits=self._inference(images, isTraining=False)
         
         with tf.name_scope('accuracy'):
-            
             prediction=tf.nn.softmax(logits)
             labels=tf.cast(labels, tf.int64)
             accuracy=tf.reduce_mean(tf.cast(tf.equal(tf.argmax(prediction, 1), labels), tf.float32))

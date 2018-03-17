@@ -90,8 +90,7 @@ def main(_):
         train_merged = tf.summary.merge([loss_summary])
         test_merged = tf.summary.merge([acc_summary])
               
-        with tf.Session() as sess:
-                
+        with tf.Session() as sess:      
             sess.run(tf.global_variables_initializer())
             
             train_writer.add_graph(sess.graph)
@@ -100,13 +99,11 @@ def main(_):
             training_handle = sess.run(training_iterator.string_handle())
             validation_handle = sess.run(validation_iterator.string_handle())
           
-            for epoch in range(0,FLAGS.num_epoch):
-                    
+            for epoch in range(0,FLAGS.num_epoch):  
                 sess.run(training_iterator.initializer)
                 temp_loss=0
                     
-                for iter_nr in range(num_batches):
-                        
+                for iter_nr in range(num_batches):  
                     _, l, summary=sess.run((training_op,loss_op,train_merged), feed_dict={handle: training_handle})
                     temp_loss+=l
                     train_writer.add_summary(summary, iter_nr)
