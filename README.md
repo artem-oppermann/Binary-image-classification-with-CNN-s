@@ -5,7 +5,7 @@ A convolutional neural network is trained on labeled images to recognize and pre
 The model uses tensorflow Dataset API as input pipeline, with the raw images and labeles encoded in a binary format called TFRecords.
 Due to bad hardware only a few filters with shallow kernel depths could be used during the convolution. Still only after one epoch an accuracy of 80 % can be achieved.
 
-    epoch_nr: 0, iter_nr: 50/750, acc. : 0.52, train_loss: 22.808
+    epoch_nr: 0, iter_nr: 50/750, acc. : 0.52, train_loss: 22.807
     epoch_nr: 0, iter_nr: 100/750, acc. : 0.57, train_loss: 21.984
     epoch_nr: 0, iter_nr: 150/750, acc. : 0.66, train_loss: 21.425
     epoch_nr: 0, iter_nr: 200/750, acc. : 0.67, train_loss: 20.734
