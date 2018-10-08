@@ -36,4 +36,4 @@ Due to bad hardware only a few filters with shallow kernel depths could be used 
     epoch_nr: 2, iter_nr: 50/750, acc. : 0.80, train_loss: 14.569
     epoch_nr: 2, iter_nr: 100/750, acc. : 0.77, train_loss: 13.721
     epoch_nr: 2, iter_nr: 150/750, acc. : 0.79, train_loss: 14.982
-    epoch_nr: 2, iter_nr: 200/750, acc. : 0.81, train_loss: 13.918
+    epoch_nr: 2, iter_nr: 200/750, acc. : 0.81, train_loss: 13.911
